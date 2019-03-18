@@ -1,3 +1,22 @@
+///////////////////////// INDEX.HTML ////////////////////////
+
+(function generateHome() {
+  var home = document.getElementById('home');
+  var h1 = document.createElement('h1');
+  var img = document.createElement('img');
+
+  h1.className = 'company-name';
+  h1.textContent = 'Pat\'s Salmon Cookies';
+  img.className = 'fish-picture';
+  img.src = 'salmon.png';
+  img.alt = 'Picture of a salmon';
+
+  home.appendChild(h1);
+  home.appendChild(img);
+}());
+
+///////////////////////// SALES.HTML ////////////////////////
+
 var storeOpen = 6;
 var storeClose = 20;
 
@@ -19,7 +38,7 @@ var generateLists = (storeData) => {
   for (var i = 0; i < storeClose - storeOpen; i++) {
     var li = document.createElement('li');
     li.className = 'store-data-item';
-    li.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 13 ? 'am' : 'pm'}: ${storeData.results[1][i]} cookies`;
+    li.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}: ${storeData.results[1][i]} cookies`;
     ul.appendChild(li);
   }
   sales.appendChild(h2);
