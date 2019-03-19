@@ -44,7 +44,20 @@ var generateLists = (function(stores) {
     row.appendChild(storeNumbers.cloneNode(true));
   }
   rows.textContent = 'Totals';
-  store.appendChild(rows.cloneNode(true));
+  var totalRow = store.appendChild(rows.cloneNode(true));
+  var hourlyTotals = [];
+  for (var i = 0; i < storeClose - storeOpen; i++) {    
+    hourlyTotals[i] = 0;
+  }
+  stores.forEach(function(store) {
+    for (var i = 0; i < storeClose - storeOpen; i++) {
+      hourlyTotals[i] += store.cookiesPerHour[i];
+    }
+  });
+  for (var i =0; i < storeClose - storeOpen; i++) {
+    storeNumbers.textContent = hourlyTotals[i];
+    totalRow.appendChild(storeNumbers.cloneNode(true));
+  }
 
   sales.appendChild(store);
 }(stores));
