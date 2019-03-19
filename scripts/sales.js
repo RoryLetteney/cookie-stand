@@ -9,13 +9,15 @@ var randomNumberOfCustomers = (min, max) => {
 
 var generateLists = (storeData) => {
   var sales = document.getElementById('sales');
+  var store = document.createElement('section');
   var h2 = document.createElement('h2');
   var ul = document.createElement('ul');
   var total = document.createElement('li');
+  store.className = 'store';
   h2.className = 'store-name';
   h2.textContent = storeData.locationName;
   ul.className = 'store-data';
-  total.className = 'store-data-item';
+  total.className = 'store-data-item total';
   total.textContent = `Total: ${storeData.totalDailyCookies} cookies`;
 
   for (var i = 0; i < storeClose - storeOpen; i++) {
@@ -24,8 +26,9 @@ var generateLists = (storeData) => {
     li.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}: ${storeData.results[1][i]} cookies`;
     ul.appendChild(li);
   }
-  sales.appendChild(h2);
-  sales.appendChild(ul);
+  sales.appendChild(store);
+  store.appendChild(h2);
+  store.appendChild(ul);
   ul.appendChild(total);
 };
 
