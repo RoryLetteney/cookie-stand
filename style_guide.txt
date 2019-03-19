@@ -1,0 +1,7 @@
+Home page, table rows and headings use font 'Georgia'
+Total rows use font 'Raleway', bold;
+
+Table headings and total rows use color #eee and background-color #4a4238.
+Table rows use color #4a4238.
+Even table rows use background-color #048ba8.
+Odd table rows use background-color #048aa867.

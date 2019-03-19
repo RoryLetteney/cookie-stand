@@ -105,10 +105,13 @@ body {
 
 .row,
 .totals-row {
-    color: #4a4238;
     height: 20px;
     line-height: 20px;
     text-align: center;
+}
+
+.row {    
+    color: #4a4238;
 }
 
 .row:nth-child(even) {
