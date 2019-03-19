@@ -24,7 +24,8 @@ body {
 }
 
 #home,
-.store-name {
+.row,
+.heading {
     font-family: 'Georgia';
 }
 
@@ -89,26 +90,38 @@ body {
 }
 
 /**************SALES PAGE****************/
-.store {
-    width: 100%;
-    background-color: #4A4238;
-    margin-bottom: 10px;
-    padding: 10px;
+
+.storeTable {
+    width: 90%;
+    margin: auto;
 }
 
-.store-name {
-    color: #97DB4F;
+.heading {
+    background-color: #4a4238;
+    color: #eee;
+    height: 20px;
+    line-height: 20px;
 }
 
-.store-data {
-    font-family: 'Arial';
-    font-weight: 600;
-    color: #508484;
+.row,
+.totals-row {
+    color: #4a4238;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
 }
 
-.total {
+.row:nth-child(even) {
+    background-color: #048ba8;
+}
+
+.row:nth-child(odd) {
+    background-color: #048aa867;
+}
+
+.totals-row {
+    background-color: #4a4238;
+    color: #eee;
     font-family: 'Raleway';
     font-weight: 700;
-    color: #4A4238;
-    background-color: #97DB4F;
 }

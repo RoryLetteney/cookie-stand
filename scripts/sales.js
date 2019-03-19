@@ -14,12 +14,12 @@ stores.forEach(function(store) {
 
 var generateTable = (function(stores) {
   var sales = document.getElementById('sales');
-  var store = document.createElement('table');
+  var storeTable = document.createElement('table');
   var heading = document.createElement('th');
   var rows = document.createElement('tr');
   var storeNumbers = document.createElement('td');
   var total = document.createElement('td');
-  store.className = 'store';
+  storeTable.className = 'storeTable';
   heading.className = 'heading';
   rows.className = 'row';
   storeNumbers.className = 'store-data';
@@ -27,19 +27,19 @@ var generateTable = (function(stores) {
 
   (function populateHeadings() {
     heading.textContent = 'Location Name';
-    store.appendChild(heading.cloneNode(true));
+    storeTable.appendChild(heading.cloneNode(true));
     for (var i = 0; i < storeClose - storeOpen; i++) {
       heading.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}:00${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
-      store.appendChild(heading.cloneNode(true));
+      storeTable.appendChild(heading.cloneNode(true));
     }
     heading.textContent = 'Total';
-    store.appendChild(heading.cloneNode(true));
+    storeTable.appendChild(heading.cloneNode(true));
   }());
 
   (function populateRows() {
     for (var i = 0; i < stores.length; i++) {
       rows.textContent = stores[i].locationName;
-      var row = store.appendChild(rows.cloneNode(true));
+      var row = storeTable.appendChild(rows.cloneNode(true));
       for (var a = 0; a < stores[i].cookiesPerHour.length; a++) {
         storeNumbers.textContent = stores[i].cookiesPerHour[a];
         row.appendChild(storeNumbers.cloneNode(true));
@@ -48,7 +48,7 @@ var generateTable = (function(stores) {
       row.appendChild(storeNumbers.cloneNode(true));
     }
     rows.textContent = 'Totals';
-    var totalRow = store.appendChild(rows.cloneNode(true));
+    var totalRow = storeTable.appendChild(rows.cloneNode(true));
     totalRow.className = 'totals-row';
     var hourlyTotals = [];
     for (var i = 0; i < storeClose - storeOpen; i++) {
@@ -59,7 +59,7 @@ var generateTable = (function(stores) {
         hourlyTotals[i] += store.cookiesPerHour[i];
       }
     });
-    for (var i =0; i < storeClose - storeOpen; i++) {
+    for (var i = 0; i < storeClose - storeOpen; i++) {
       storeNumbers.textContent = hourlyTotals[i];
       totalRow.appendChild(storeNumbers.cloneNode(true));
     }
@@ -67,5 +67,5 @@ var generateTable = (function(stores) {
     totalRow.appendChild(storeNumbers.cloneNode(true));
   }());
 
-  sales.appendChild(store);
+  sales.appendChild(storeTable);
 }(stores));
