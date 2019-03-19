@@ -1,3 +1,11 @@
+/*
+Taupe - #4a4238
+Tangerine - #f18f01
+Wintergreen Dream - #508484
+Blue (Munsell) - #048ba8
+Kiwi - #97db4f
+*/
+
 *,
 *:after,
 *:before {
@@ -5,6 +13,10 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
@@ -22,7 +34,29 @@ body {
     color: #4D5359;
 }
 
+.company-name,
+.fish-picture {
+    display: inline-block;
+}
 
+.company-name {
+    text-align: center;
+    font-size: 3em;
+    min-width: calc(100vw - 240px);
+}
+
+.fish-picture {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.fish-picture:first-of-type {
+    margin-left: 20px;
+}
+
+.fish-picture:last-of-type {
+    margin-right: 20px;
+}
 
 /**************SALES PAGE****************/
 .store {
