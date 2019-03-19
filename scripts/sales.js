@@ -1,30 +1,5 @@
 'use strict';
 
-var generateLists = (storeData) => {
-  var sales = document.getElementById('sales');
-  var store = document.createElement('section');
-  var h2 = document.createElement('h2');
-  var ul = document.createElement('ul');
-  var total = document.createElement('li');
-  store.className = 'store';
-  h2.className = 'store-name';
-  h2.textContent = storeData.locationName;
-  ul.className = 'store-data';
-  total.className = 'store-data-item total';
-  total.textContent = `Total: ${storeData.totalDailyCookies} cookies`;
-
-  for (var i = 0; i < storeClose - storeOpen; i++) {
-    var li = document.createElement('li');
-    li.className = 'store-data-item';
-    li.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}: ${storeData.results[1][i]} cookies`;
-    ul.appendChild(li);
-  }
-  sales.appendChild(store);
-  store.appendChild(h2);
-  store.appendChild(ul);
-  ul.appendChild(total);
-};
-
 var stores = [
   new Store('1st and Pike', 23, 65, 6.3),
   new Store('SeaTac Airport', 3, 24, 1.2),
@@ -33,7 +8,48 @@ var stores = [
   new Store('Alki', 2, 16, 4.6)
 ];
 
-stores.forEach(store => {
+stores.forEach(function(store) {
   store.render();
-  generateLists(store);
 });
+
+var generateLists = (function(stores) {
+  var sales = document.getElementById('sales');
+  var store = document.createElement('table');
+  var headers = document.createElement('th');
+  var storeName = document.createElement('tr');
+  var storeNumbers = document.createElement('td');
+  var total = document.createElement('td');
+  store.className = 'store';
+  storeName.className = 'store-name';
+  // storeName.textContent = storeData.locationName;
+  storeNumbers.className = 'store-data';
+  total.className = 'store-data-item total';
+  // total.textContent = `${storeData.totalDailyCookies} cookies`;
+
+  headers.textContent = 'Location Name';
+  store.appendChild(headers.cloneNode(true));
+  for (var i = 0; i < storeClose - storeOpen; i++) {
+    headers.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
+    store.appendChild(headers.cloneNode(true));
+  }
+
+  // stores.forEach(function(store) {
+  //   console.log(store);
+  //   storeName.textContent = store.locationName;
+  //   store.appendChild(storeName.cloneNode(true));
+  // });
+  // for (var i = 0; i < storeClose - storeOpen; i++) {
+  //   var th = document.createElement('th');
+  //   var td = document.createElement('td');
+  //   th.className = 'store-data-timeframe';
+  //   th.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
+  //   td.className = 'store-data-item';
+  //   td.textContent = `${storeData.results[1][i]} cookies`;
+  //   store.appendChild(th);
+  //   storeNumbers.appendChild(td);
+  // }
+  sales.appendChild(store);
+  // store.appendChild(storeName);
+  // store.appendChild(storeNumbers);
+  // storeNumbers.appendChild(total);
+}(stores));
