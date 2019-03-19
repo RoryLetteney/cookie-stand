@@ -16,44 +16,31 @@ var generateLists = (function(stores) {
   var sales = document.getElementById('sales');
   var store = document.createElement('table');
   var headers = document.createElement('th');
-  var storeName = document.createElement('tr');
+  var rows = document.createElement('tr');
   var storeNumbers = document.createElement('td');
   var total = document.createElement('td');
   store.className = 'store';
-  storeName.className = 'store-name';
-  // storeName.textContent = storeData.locationName;
+  rows.className = 'row';
   storeNumbers.className = 'store-data';
   total.className = 'store-data-item total';
-  // total.textContent = `${storeData.totalDailyCookies} cookies`;
 
   headers.textContent = 'Location Name';
   store.appendChild(headers.cloneNode(true));
   for (var i = 0; i < storeClose - storeOpen; i++) {
-    headers.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
+    headers.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}:00${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
     store.appendChild(headers.cloneNode(true));
   }
+  headers.textContent = 'Total';
+  store.appendChild(headers.cloneNode(true));
 
   for (var i = 0; i < stores.length; i++) {
-    storeName.textContent = stores[i].locationName;
-    store.appendChild(storeName.cloneNode(true));
+    rows.textContent = stores[i].locationName;
+    store.appendChild(rows.cloneNode(true));
   }
+  rows.textContent = 'Totals';
+  store.appendChild(rows.cloneNode(true));
 
-  // stores.forEach(function(store) {
-  //   console.log(store);
-  //   
-  // });
-  // for (var i = 0; i < storeClose - storeOpen; i++) {
-  //   var th = document.createElement('th');
-  //   var td = document.createElement('td');
-  //   th.className = 'store-data-timeframe';
-  //   th.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
-  //   td.className = 'store-data-item';
-  //   td.textContent = `${storeData.results[1][i]} cookies`;
-  //   store.appendChild(th);
-  //   storeNumbers.appendChild(td);
-  // }
+  
+
   sales.appendChild(store);
-  // store.appendChild(storeName);
-  // store.appendChild(storeNumbers);
-  // storeNumbers.appendChild(total);
 }(stores));
