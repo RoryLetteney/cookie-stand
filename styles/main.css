@@ -58,6 +58,35 @@ body {
     margin-right: 20px;
 }
 
+.about {
+    float: right;
+    width: 40vw;
+    margin: 100px 30vw 0 0;
+    font-size: 1.4em;
+    line-height: 30px;
+}
+
+.store-hours,
+.store-locations {
+    float: left;
+    width: 10vw;
+    margin-left: 10vw;
+    font-size: 1.2em;
+}
+
+.store-hours {
+    margin-top: 100px;
+}
+
+.store-locations {
+    margin-top: 30px;
+    clear: left;
+}
+
+.store-addresses {
+    margin-bottom: 10px;
+}
+
 /**************SALES PAGE****************/
 .store {
     width: 300px;
