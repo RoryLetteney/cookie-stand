@@ -12,52 +12,60 @@ stores.forEach(function(store) {
   store.render();
 });
 
-var generateLists = (function(stores) {
+var generateTable = (function(stores) {
   var sales = document.getElementById('sales');
   var store = document.createElement('table');
-  var headers = document.createElement('th');
+  var heading = document.createElement('th');
   var rows = document.createElement('tr');
   var storeNumbers = document.createElement('td');
   var total = document.createElement('td');
   store.className = 'store';
+  heading.className = 'heading';
   rows.className = 'row';
   storeNumbers.className = 'store-data';
   total.className = 'store-data-item total';
 
-  headers.textContent = 'Location Name';
-  store.appendChild(headers.cloneNode(true));
-  for (var i = 0; i < storeClose - storeOpen; i++) {
-    headers.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}:00${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
-    store.appendChild(headers.cloneNode(true));
-  }
-  headers.textContent = 'Total';
-  store.appendChild(headers.cloneNode(true));
+  (function populateHeadings() {
+    heading.textContent = 'Location Name';
+    store.appendChild(heading.cloneNode(true));
+    for (var i = 0; i < storeClose - storeOpen; i++) {
+      heading.textContent = `${(i + storeOpen) < 13 ? i + storeOpen : i - storeOpen}:00${(i + storeOpen) < 12 ? 'am' : 'pm'}`;
+      store.appendChild(heading.cloneNode(true));
+    }
+    heading.textContent = 'Total';
+    store.appendChild(heading.cloneNode(true));
+  }());
 
-  for (var i = 0; i < stores.length; i++) {
-    rows.textContent = stores[i].locationName;
-    var row = store.appendChild(rows.cloneNode(true));
-    for (var a = 0; a < stores[i].cookiesPerHour.length; a++) {
-      storeNumbers.textContent = stores[i].cookiesPerHour[a];
+  (function populateRows() {
+    for (var i = 0; i < stores.length; i++) {
+      rows.textContent = stores[i].locationName;
+      var row = store.appendChild(rows.cloneNode(true));
+      for (var a = 0; a < stores[i].cookiesPerHour.length; a++) {
+        storeNumbers.textContent = stores[i].cookiesPerHour[a];
+        row.appendChild(storeNumbers.cloneNode(true));
+      }
+      storeNumbers.textContent = stores[i].totalDailyCookies;
       row.appendChild(storeNumbers.cloneNode(true));
     }
-    storeNumbers.textContent = stores[i].totalDailyCookies;
-    row.appendChild(storeNumbers.cloneNode(true));
-  }
-  rows.textContent = 'Totals';
-  var totalRow = store.appendChild(rows.cloneNode(true));
-  var hourlyTotals = [];
-  for (var i = 0; i < storeClose - storeOpen; i++) {    
-    hourlyTotals[i] = 0;
-  }
-  stores.forEach(function(store) {
+    rows.textContent = 'Totals';
+    var totalRow = store.appendChild(rows.cloneNode(true));
+    totalRow.className = 'totals-row';
+    var hourlyTotals = [];
     for (var i = 0; i < storeClose - storeOpen; i++) {
-      hourlyTotals[i] += store.cookiesPerHour[i];
+      hourlyTotals[i] = 0;
     }
-  });
-  for (var i =0; i < storeClose - storeOpen; i++) {
-    storeNumbers.textContent = hourlyTotals[i];
+    stores.forEach(function(store) {
+      for (var i = 0; i < storeClose - storeOpen; i++) {
+        hourlyTotals[i] += store.cookiesPerHour[i];
+      }
+    });
+    for (var i =0; i < storeClose - storeOpen; i++) {
+      storeNumbers.textContent = hourlyTotals[i];
+      totalRow.appendChild(storeNumbers.cloneNode(true));
+    }
+    storeNumbers.textContent = hourlyTotals.reduce(function(total, num) {return total + num;});
     totalRow.appendChild(storeNumbers.cloneNode(true));
-  }
+  }());
 
   sales.appendChild(store);
 }(stores));
