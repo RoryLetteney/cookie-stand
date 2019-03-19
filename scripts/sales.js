@@ -33,10 +33,14 @@ var generateLists = (function(stores) {
     store.appendChild(headers.cloneNode(true));
   }
 
+  for (var i = 0; i < stores.length; i++) {
+    storeName.textContent = stores[i].locationName;
+    store.appendChild(storeName.cloneNode(true));
+  }
+
   // stores.forEach(function(store) {
   //   console.log(store);
-  //   storeName.textContent = store.locationName;
-  //   store.appendChild(storeName.cloneNode(true));
+  //   
   // });
   // for (var i = 0; i < storeClose - storeOpen; i++) {
   //   var th = document.createElement('th');
