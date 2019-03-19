@@ -1,3 +1,11 @@
+/*
+Taupe - #4a4238
+Tangerine - #f18f01
+Wintergreen Dream - #508484
+Blue (Munsell) - #048ba8
+Kiwi - #97db4f
+*/
+
 *,
 *:after,
 *:before {
@@ -5,6 +13,10 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
@@ -22,7 +34,59 @@ body {
     color: #4D5359;
 }
 
+.company-name,
+.fish-picture {
+    display: inline-block;
+}
 
+.company-name {
+    text-align: center;
+    font-size: 3em;
+    min-width: calc(100vw - 240px);
+}
+
+.fish-picture {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.fish-picture:first-of-type {
+    margin-left: 20px;
+}
+
+.fish-picture:last-of-type {
+    margin-right: 20px;
+}
+
+.about {
+    float: right;
+    width: 40vw;
+    margin: 100px 30vw 0 0;
+    font-size: 1.4em;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.store-hours,
+.store-locations {
+    float: left;
+    width: 10vw;
+    margin-left: 10vw;
+    font-size: 1.2em;
+}
+
+.store-hours {
+    margin-top: 100px;
+}
+
+.store-locations {
+    margin-top: 30px;
+    clear: left;
+}
+
+.store-addresses {
+    margin-bottom: 10px;
+}
 
 /**************SALES PAGE****************/
 .store {
@@ -35,20 +99,31 @@ body {
 }
 
 .store-name {
-    text-align: center;
     margin-bottom: 10px;
     color: #97DB4F;
+    text-align: center;
 }
 
 .store-data {
     font-family: 'Arial';
     font-weight: 600;
     color: #508484;
+    width: 40%;
+    margin: auto;
 }
 
 .store-data-item {
     padding: 2px 10px;
     box-sizing: border-box;
+    text-align: justify;
+    overflow: hidden;
+    height: 15px;
+}
+
+.store-data-item:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
 }
 
 .total {
