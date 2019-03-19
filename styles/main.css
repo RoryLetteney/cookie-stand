@@ -1,0 +1,29 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+#home,
+.store-name {
+    font-family: 'Georgia';
+    color: #4D5359;
+}
+
+/**************HOME PAGE****************/
+
+
+
+
+
+/**************SALES PAGE****************/
+
+
+
+.store-data {
+    font-family: 'Arial';
+    color: #508484;
+}
