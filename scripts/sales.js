@@ -35,12 +35,16 @@ var generateLists = (function(stores) {
 
   for (var i = 0; i < stores.length; i++) {
     rows.textContent = stores[i].locationName;
-    store.appendChild(rows.cloneNode(true));
+    var row = store.appendChild(rows.cloneNode(true));
+    for (var a = 0; a < stores[i].cookiesPerHour.length; a++) {
+      storeNumbers.textContent = stores[i].cookiesPerHour[a];
+      row.appendChild(storeNumbers.cloneNode(true));
+    }
+    storeNumbers.textContent = stores[i].totalDailyCookies;
+    row.appendChild(storeNumbers.cloneNode(true));
   }
   rows.textContent = 'Totals';
   store.appendChild(rows.cloneNode(true));
-
-  
 
   sales.appendChild(store);
 }(stores));
