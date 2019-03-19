@@ -1,12 +1,5 @@
 'use strict';
 
-var storeOpen = 6;
-var storeClose = 20;
-
-var randomNumberOfCustomers = (min, max) => {
-  return Math.ceil(Math.random() * (max - (min - 1)) + (min - 1));
-};
-
 var generateLists = (storeData) => {
   var sales = document.getElementById('sales');
   var store = document.createElement('section');
