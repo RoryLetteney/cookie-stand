@@ -10,6 +10,25 @@
 </head>
 <body>
     <main id="sales">
+        <form id="add-new-location">
+            <fieldset>
+                <legend>Add a new store to the table:</legend>
+
+                <label class="form-label" for='location'>Location Name </label>
+                <input class="form-input" name="location" type="text" placeholder="SeaTac Airport" required>
+
+                <label class="form-label" for='min-customers'>Min Customers Per Hour </label>
+                <input class="form-input" name="min-customers" type="text" placeholder="23" required>
+
+                <label class="form-label" for='max-customers'>Max Customers Per Hour </label>
+                <input class="form-input" name="max-customers" type="text" placeholder="65" required>
+
+                <label class="form-label" for='avg-cookies'>Avg Cookies Per Customer </label>
+                <input class="form-input" name="avg-cookies" type="text" placeholder="3.8" required>
+
+                <button type="submit">Add Store Data</button>
+            </fieldset>
+        </form>
         <table id="store-table" class="store-table">
             
         </table>

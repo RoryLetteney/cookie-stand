@@ -39,26 +39,27 @@ function Store(name, minCustomers, maxCustomers, avgCookies, tables) {
   },
   this.appendSelf = function(tables) {
     for (var i = 0; i < tables.length; i++) {
-      var rows = document.createElement('tr');
+      var tableLength = tables[i].rows.length;
+      var rows = tables[i].insertRow((i === 0 && tableLength > 4 ? tableLength - 1 : tableLength));
       var storeNumbers = document.createElement('td');
       rows.className = 'row';
       storeNumbers.className = 'store-data';
 
       if (tables[i] === document.getElementById('store-table')) {
         rows.textContent = this.locationName;
-        var storeRow = tables[i].appendChild(rows.cloneNode(true));
+        storeNumbers.className += ' store-data-cookies';
         for (var a = 0; a < this.cookiesPerHour.length; a++) {
           storeNumbers.textContent = this.cookiesPerHour[a];
-          storeRow.appendChild(storeNumbers.cloneNode(true));
+          rows.appendChild(storeNumbers.cloneNode(true));
         }
         storeNumbers.textContent = this.totalDailyCookies;
-        storeRow.appendChild(storeNumbers.cloneNode(true));
+        rows.appendChild(storeNumbers.cloneNode(true));
       } else if (tables[i] === document.getElementById('staff-table')) {
         rows.textContent = this.locationName;
-        var staffRow = tables[i].appendChild(rows.cloneNode(true));
+        storeNumbers.className += ' store-data-staff';
         for (var a = 0; a < this.customersPerHour.length; a++) {
           storeNumbers.textContent = `${Math.ceil(this.customersPerHour[a] / this.staffEfficiency) >= 2 ? Math.ceil(this.customersPerHour[a] / this.staffEfficiency) : 2} staff`;
-          staffRow.appendChild(storeNumbers.cloneNode(true));
+          rows.appendChild(storeNumbers.cloneNode(true));
         }
       }
     }

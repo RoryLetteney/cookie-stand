@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    background-color: rgb(205, 255, 228);
+    background-color: #048ba850;
 }
 
 #home,
@@ -32,7 +32,7 @@ body {
 /**************HOME PAGE****************/
 
 #home {
-    color: #4D5359;
+    color: #4a4238;
 }
 
 .company-name,
@@ -94,6 +94,7 @@ body {
 .store-table {
     width: 90%;
     margin: auto;
+    font-size: 1.2em;
 }
 
 .heading {
@@ -120,6 +121,12 @@ body {
 
 .row:nth-child(odd) {
     background-color: #048aa867;
+}
+
+.store-data-cookies:last-of-type {
+    background-color: #4a423895;
+    color: #eee;
+    font-weight: 600;
 }
 
 .totals-row {
