@@ -94,6 +94,7 @@ body {
 .store-table {
     width: 90%;
     margin: auto;
+    font-size: 1.2em;
 }
 
 .heading {
@@ -120,6 +121,12 @@ body {
 
 .row:nth-child(odd) {
     background-color: #048aa867;
+}
+
+.store-data-cookies:last-of-type {
+    background-color: #4a423895;
+    color: #eee;
+    font-weight: 600;
 }
 
 .totals-row {

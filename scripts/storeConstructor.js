@@ -46,15 +46,17 @@ function Store(name, minCustomers, maxCustomers, avgCookies, tables) {
 
       if (tables[i] === document.getElementById('store-table')) {
         rows.textContent = this.locationName;
+        storeNumbers.className += ' store-data-cookies';
         var storeRow = tables[i].appendChild(rows.cloneNode(true));
         for (var a = 0; a < this.cookiesPerHour.length; a++) {
-          storeNumbers.textContent = `${this.cookiesPerHour[a]} cookies`;
+          storeNumbers.textContent = this.cookiesPerHour[a];
           storeRow.appendChild(storeNumbers.cloneNode(true));
         }
-        storeNumbers.textContent = this.totalDailyCookies;
+        storeNumbers.textContent = `${this.totalDailyCookies} cookies`;
         storeRow.appendChild(storeNumbers.cloneNode(true));
       } else if (tables[i] === document.getElementById('staff-table')) {
         rows.textContent = this.locationName;
+        storeNumbers.className += ' store-data-staff';
         var staffRow = tables[i].appendChild(rows.cloneNode(true));
         for (var a = 0; a < this.customersPerHour.length; a++) {
           storeNumbers.textContent = `${Math.ceil(this.customersPerHour[a] / this.staffEfficiency) >= 2 ? Math.ceil(this.customersPerHour[a] / this.staffEfficiency) : 2} staff`;
