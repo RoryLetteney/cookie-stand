@@ -48,7 +48,7 @@ function Store(name, minCustomers, maxCustomers, avgCookies, tables) {
         rows.textContent = this.locationName;
         var storeRow = tables[i].appendChild(rows.cloneNode(true));
         for (var a = 0; a < this.cookiesPerHour.length; a++) {
-          storeNumbers.textContent = this.cookiesPerHour[a];
+          storeNumbers.textContent = `${this.cookiesPerHour[a]} cookies`;
           storeRow.appendChild(storeNumbers.cloneNode(true));
         }
         storeNumbers.textContent = this.totalDailyCookies;

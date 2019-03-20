@@ -19,7 +19,7 @@ var generateStoresTable = (function() {
       table.appendChild(heading.cloneNode(true));
     }
     if (needTotal) {
-      heading.textContent = 'Total';
+      heading.textContent = 'Daily Location Total';
       table.appendChild(heading.cloneNode(true));
     }
   };
@@ -42,7 +42,7 @@ var generateStoresTable = (function() {
   });
 
   (function populateTotalRow() {
-    rows.textContent = 'Totals';
+    rows.textContent = 'Company Totals';
     var totalRow = storeTable.appendChild(rows.cloneNode(true));
     totalRow.className = 'totals-row';
     var hourlyTotals = [];
