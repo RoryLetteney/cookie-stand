@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    background-color: rgb(205, 255, 228);
+    background-color: #048ba850;
 }
 
 #home,
@@ -32,7 +32,7 @@ body {
 /**************HOME PAGE****************/
 
 #home {
-    color: #4D5359;
+    color: #4a4238;
 }
 
 .company-name,

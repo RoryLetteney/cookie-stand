@@ -58,10 +58,7 @@ var generateStoresTable = (function() {
       storeNumbers.textContent = hourlyTotals[i];
       totalRow.appendChild(storeNumbers.cloneNode(true));
     }
-    storeNumbers.textContent = hourlyTotals.reduce(function(total, num) {return total + num;});
+    storeNumbers.textContent = `${hourlyTotals.reduce(function(total, num) {return total + num;})} cookies`;
     totalRow.appendChild(storeNumbers.cloneNode(true));
   }());
-
-  
-
 }());

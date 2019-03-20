@@ -52,7 +52,7 @@ function Store(name, minCustomers, maxCustomers, avgCookies, tables) {
           storeNumbers.textContent = this.cookiesPerHour[a];
           storeRow.appendChild(storeNumbers.cloneNode(true));
         }
-        storeNumbers.textContent = `${this.totalDailyCookies} cookies`;
+        storeNumbers.textContent = this.totalDailyCookies;
         storeRow.appendChild(storeNumbers.cloneNode(true));
       } else if (tables[i] === document.getElementById('staff-table')) {
         rows.textContent = this.locationName;
