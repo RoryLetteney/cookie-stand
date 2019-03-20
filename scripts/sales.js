@@ -22,6 +22,8 @@ var addNewStore = function(e) {
   });
   stores.push(new Store(newStoreData[0], parseInt(newStoreData[1]), parseInt(newStoreData[2]), parseInt(newStoreData[3]), tables));
   stores[stores.length - 1].render();
+  storeTable.deleteRow(-1);
+  populateTotalRow();
 };
 
 var populateHeadings = function(table, needTotal) {
@@ -36,25 +38,8 @@ var populateHeadings = function(table, needTotal) {
     table.appendChild(heading.cloneNode(true));
   }
 };
-populateHeadings(storeTable, true);
 
-(function generateStaffTable() {
-  populateHeadings(staffTable, false);
-}());
-
-var stores = [
-  new Store('1st and Pike', 23, 65, 6.3, tables),
-  new Store('SeaTac Airport', 3, 24, 1.2, tables),
-  new Store('Seattle Center', 11, 38, 3.7, tables),
-  new Store('Capitol Hill', 20, 38, 2.3, tables),
-  new Store('Alki', 2, 16, 4.6, tables)
-];
-
-stores.forEach(function(store) {
-  store.render();
-});
-
-(function populateTotalRow() {
+var populateTotalRow = function() {
   rows.textContent = 'Company Totals';
   var totalRow = storeTable.appendChild(rows.cloneNode(true));
   totalRow.className = 'totals-row';
@@ -73,6 +58,25 @@ stores.forEach(function(store) {
   }
   storeNumbers.textContent = `${hourlyTotals.reduce(function(total, num) {return total + num;})} cookies`;
   totalRow.appendChild(storeNumbers.cloneNode(true));
+};
+
+populateHeadings(storeTable, true);
+(function generateStaffTable() {
+  populateHeadings(staffTable, false);
 }());
+
+var stores = [
+  new Store('1st and Pike', 23, 65, 6.3, tables),
+  new Store('SeaTac Airport', 3, 24, 1.2, tables),
+  new Store('Seattle Center', 11, 38, 3.7, tables),
+  new Store('Capitol Hill', 20, 38, 2.3, tables),
+  new Store('Alki', 2, 16, 4.6, tables)
+];
+
+stores.forEach(function(store) {
+  store.render();
+});
+
+populateTotalRow();
 
 newStoreForm.addEventListener('submit', addNewStore);
