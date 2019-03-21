@@ -6,13 +6,12 @@ Blue (Munsell) - #048ba8
 Kiwi - #97db4f
 */
 
-*,
-*:after,
-*:before {
+html,
+body,
+p,
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
 }
 
 html {
@@ -38,26 +37,36 @@ body {
 .company-name {
     text-align: center;
     font-size: 3em;
-    padding-top: 5vh;
+    margin: 0;
 }
 
 .fish-picture {
     display: block;
     width: calc(100vw / 6);
-    margin: 5vh auto 0;
+    margin: 0 auto;
+    padding-top: 25vh;
+}
+
+.about,
+.store-info {
+    float: left;
 }
 
 .about {
-    width: calc(100vw / 3);
+    width: calc((100vw / 12) * 4);
     font-size: 1.4em;
     line-height: 30px;
     text-align: justify;
+    margin-left: calc((100vw / 12) * 4);
+    margin-top: 5vh;
 }
 
 .store-info {
     width: calc(100vw / 12);
     font-size: 1.2em;
     text-align: right;
+    margin-left: calc(100vw / 12);
+    margin-top: -15vh;
 }
 
 .store-locations {

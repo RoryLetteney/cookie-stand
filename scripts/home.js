@@ -48,8 +48,8 @@
   dailyHours.textContent = '6am - 8pm daily';
   storeLocations.className = 'store-locations';
 
-  home.appendChild(h1);
   home.appendChild(img);
+  home.appendChild(h1);
   home.appendChild(about);
   home.appendChild(storeInfo);
   storeInfo.appendChild(hours);
