@@ -39,7 +39,7 @@
   img.src = 'imgs/salmon.png';
   img.alt = 'Picture of a salmon';
   about.className = 'about col-4';
-  about.textContent = 'Pat\'s Salmon Cookies is the hot new thing in the Seattle area! We combine two of Seattle\'s favorite things: salmon and cookies. Give us a call at 555-5555 to place your order today!';
+  about.textContent = 'Pat\'s Salmon Cookies is the hot new thing in the Seattle area! We combine two of Seattle\'s favorite things: salmon and cookies. Our mission is to deliver fresh and innovative food in a casual and familiar atmosphere. Give us a call at 555-5555 to place your order today!';
   storeInfo.className = 'store-info col-1';
   hours.className = 'store-hours';
   hoursTitle.className = 'store-hours-title';
