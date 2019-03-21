@@ -6,13 +6,13 @@ Blue (Munsell) - #048ba8
 Kiwi - #97db4f
 */
 
-*,
-*:after,
-*:before {
+html,
+body,
+p,
+h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
+    box-sizing: border-box;
 }
 
 html {
@@ -21,6 +21,23 @@ html {
 
 body {
     background-color: #048ba850;
+    position: relative;
+    height: 100vh;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 5vh;
+    height: 5vh;
+}
+
+.footer-image {
+    width: 20px;
+    margin-left: 10px;
+    border-radius: 50%;
 }
 
 #home,
@@ -29,60 +46,73 @@ body {
     font-family: 'Georgia';
 }
 
+.col-1 {    
+    width: 8.33%;
+    width: calc(100vw / 12);
+}
+
+.col-2 {
+    width: 16.66%;
+    width: calc((100vw / 12) * 2);
+}
+
+.col-3 {
+    width: 25%;
+    width: calc((100vw / 12) * 3);
+}
+
+.col-4 {
+    width: 33.33%;
+    width: calc((100vw / 12) * 4);
+}
+
+.col-10 {
+    width: 83.33%;
+    width: calc((100vw / 12) * 10);
+}
+
 /**************HOME PAGE****************/
 
 #home {
     color: #4a4238;
 }
 
-.company-name,
-.fish-picture {
-    display: inline-block;
-}
-
 .company-name {
     text-align: center;
     font-size: 3em;
-    min-width: calc(100vw - 240px);
+    margin: 0;
 }
 
 .fish-picture {
-    width: 100px;
-    margin-top: 20px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 25vh;
 }
 
-.fish-picture:first-of-type {
-    margin-left: 20px;
-}
-
-.fish-picture:last-of-type {
-    margin-right: 20px;
+.about,
+.store-info {
+    float: left;
 }
 
 .about {
-    float: right;
-    width: 40vw;
-    margin: 100px 30vw 0 0;
     font-size: 1.4em;
     line-height: 30px;
     text-align: justify;
+    margin-left: 33.33%;
+    margin-left: calc((100vw / 12) * 4);
+    margin-top: 5vh;
 }
 
-.store-hours,
-.store-locations {
-    float: left;
-    width: 10vw;
-    margin-left: 10vw;
+.store-info {
     font-size: 1.2em;
-}
-
-.store-hours {
-    margin-top: 100px;
+    text-align: right;
+    margin-left: 8.33%;
+    margin-left: calc(100vw / 12);
+    margin-top: -15vh;
 }
 
 .store-locations {
     margin-top: 30px;
-    clear: left;
 }
 
 .store-addresses {
@@ -91,9 +121,45 @@ body {
 
 /**************SALES PAGE****************/
 
-.store-table {
-    width: 90%;
+.form {
     margin: auto;
+    padding-top: 2vh;
+}
+
+.form-legend,
+.form-label {
+    font-family: 'Raleway';
+    font-weight: 700;
+    color: #4a4238;
+}
+
+.form-legend {
+    font-size: 1.4em;
+}
+
+.form-label {
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.form-input {
+    text-align: center;
+    width: 100px;
+}
+
+.table-heading {
+    text-align: center;
+    margin: 5vh auto 0;
+    line-height: 5vh;
+    height: 5vh;
+    font-family: 'Raleway';
+    color: #ff5d4b;
+    font-size: 2em;
+    background-color: #4a4238;
+}
+
+.store-table {
+    margin: 0 auto 0;
     font-size: 1.2em;
 }
 
@@ -134,4 +200,27 @@ body {
     color: #eee;
     font-family: 'Raleway';
     font-weight: 700;
+}
+
+/********************SKEWS******************/
+
+.skew {
+    position: fixed;
+    z-index: -1;
+}
+
+.bottom-left {
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    background-color: #fa8072;
+    height: 50vh;
+    bottom: 0;
+}
+
+.top {
+    -webkit-clip-path: polygon(0 0, 50% 0%, 0 100%);
+    clip-path: polygon(0 0, 50% 0%, 0 100%);
+    background-color: #97db4f90;
+    width: 100vw;
+    height: 100vh;
 }
