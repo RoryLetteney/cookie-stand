@@ -115,6 +115,32 @@ body {
 
 /**************SALES PAGE****************/
 
+.form {
+    margin: auto;
+    padding-top: 2vh;
+}
+
+.form-legend,
+.form-label {
+    font-family: 'Raleway';
+    font-weight: 700;
+    color: #4a4238;
+}
+
+.form-legend {
+    font-size: 1.4em;
+}
+
+.form-label {
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.form-input {
+    text-align: center;
+    width: 100px;
+}
+
 .table-heading {
     text-align: center;
     margin: 5vh auto 0;
