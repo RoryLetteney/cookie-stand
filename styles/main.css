@@ -87,6 +87,7 @@ body {
     font-size: 1.4em;
     line-height: 30px;
     text-align: justify;
+    margin-left: 33.33%;
     margin-left: calc((100vw / 12) * 4);
     margin-top: 5vh;
 }
