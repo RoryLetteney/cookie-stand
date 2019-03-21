@@ -12,6 +12,7 @@ p,
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -28,6 +29,26 @@ body {
     font-family: 'Georgia';
 }
 
+.col-1 {    
+    width: 8.33%;
+    width: calc(100vw / 12);
+}
+
+.col-2 {
+    width: 16.66%;
+    width: calc((100vw / 12) * 2);
+}
+
+.col-3 {
+    width: 25%;
+    width: calc((100vw / 12) * 3);
+}
+
+.col-4 {
+    width: 33.33%;
+    width: calc((100vw / 12) * 4);
+}
+
 /**************HOME PAGE****************/
 
 #home {
@@ -42,7 +63,6 @@ body {
 
 .fish-picture {
     display: block;
-    width: calc(100vw / 6);
     margin: 0 auto;
     padding-top: 25vh;
 }
@@ -53,7 +73,6 @@ body {
 }
 
 .about {
-    width: calc((100vw / 12) * 4);
     font-size: 1.4em;
     line-height: 30px;
     text-align: justify;
@@ -62,9 +81,9 @@ body {
 }
 
 .store-info {
-    width: calc(100vw / 12);
     font-size: 1.2em;
     text-align: right;
+    margin-left: 8.33%;
     margin-left: calc(100vw / 12);
     margin-top: -15vh;
 }
@@ -126,15 +145,17 @@ body {
 
 /********************SKEWS******************/
 
+.skew {
+    position: fixed;
+    z-index: -1;
+}
+
 .bottom-left {
     -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
     background-color: #fa8072;
-    width: 25vw;
     height: 50vh;
-    position: fixed;
     bottom: 0;
-    z-index: -1;
 }
 
 .top {
@@ -143,6 +164,4 @@ body {
     background-color: #97db4f90;
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    z-index: -1;
 }
