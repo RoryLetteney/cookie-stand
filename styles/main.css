@@ -60,6 +60,11 @@ body {
     width: calc((100vw / 12) * 4);
 }
 
+.col-10 {
+    width: 83.33%;
+    width: calc((100vw / 12) * 10);
+}
+
 /**************HOME PAGE****************/
 
 #home {
@@ -110,9 +115,19 @@ body {
 
 /**************SALES PAGE****************/
 
+.table-heading {
+    text-align: center;
+    margin: 5vh auto 0;
+    line-height: 5vh;
+    height: 5vh;
+    font-family: 'Raleway';
+    color: #ff5d4b;
+    font-size: 2em;
+    background-color: #4a4238;
+}
+
 .store-table {
-    width: 90%;
-    margin: auto;
+    margin: 0 auto 0;
     font-size: 1.2em;
 }
 
