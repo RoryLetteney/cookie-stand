@@ -36,7 +36,7 @@
   h1.className = 'company-name';
   h1.textContent = 'Pat\'s Salmon Cookies';
   img.className = 'fish-picture col-2';
-  img.src = 'img/salmon.png';
+  img.src = 'imgs/salmon.png';
   img.alt = 'Picture of a salmon';
   about.className = 'about col-4';
   about.textContent = 'Pat\'s Salmon Cookies is the hot new thing in the Seattle area! We combine two of Seattle\'s favorite things: salmon and cookies. Give us a call at 555-5555 to place your order today!';
