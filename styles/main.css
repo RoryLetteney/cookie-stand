@@ -35,54 +35,33 @@ body {
     color: #4a4238;
 }
 
-.company-name,
-.fish-picture {
-    display: inline-block;
-}
-
 .company-name {
     text-align: center;
     font-size: 3em;
-    min-width: calc(100vw - 240px);
+    padding-top: 5vh;
 }
 
 .fish-picture {
-    width: 100px;
-    margin-top: 20px;
-}
-
-.fish-picture:first-of-type {
-    margin-left: 20px;
-}
-
-.fish-picture:last-of-type {
-    margin-right: 20px;
+    display: block;
+    width: calc(100vw / 6);
+    margin: 5vh auto 0;
 }
 
 .about {
-    float: right;
-    width: 40vw;
-    margin: 100px 30vw 0 0;
+    width: calc(100vw / 3);
     font-size: 1.4em;
     line-height: 30px;
     text-align: justify;
 }
 
-.store-hours,
-.store-locations {
-    float: left;
-    width: 10vw;
-    margin-left: 10vw;
+.store-info {
+    width: calc(100vw / 12);
     font-size: 1.2em;
-}
-
-.store-hours {
-    margin-top: 100px;
+    text-align: right;
 }
 
 .store-locations {
     margin-top: 30px;
-    clear: left;
 }
 
 .store-addresses {
@@ -141,9 +120,9 @@ body {
 .bottom-left {
     -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    background-color: #97db4f50;
-    width: 400px;
-    height: 400px;
+    background-color: #fa8072;
+    width: 25vw;
+    height: 50vh;
     position: fixed;
     bottom: 0;
     z-index: -1;
@@ -152,7 +131,7 @@ body {
 .top {
     -webkit-clip-path: polygon(0 0, 50% 0%, 0 100%);
     clip-path: polygon(0 0, 50% 0%, 0 100%);
-    background-color: #97db4f80;
+    background-color: #97db4f90;
     width: 100vw;
     height: 100vh;
     position: fixed;
