@@ -30,6 +30,7 @@ var addNewStore = function(e) {
 
 var updateStoreData = function(e) {
   e.preventDefault();
+  var exists = false;
   var currentTableData = [];
   var storeToRender;
   var updatedData = [];
@@ -47,14 +48,22 @@ var updateStoreData = function(e) {
       currentTableData[i][a] = currentLocationName;
       if (currentLocationName === updateStoreFormElements[1].value) {
         tables[i].deleteRow(a);
+        exists = true;
       }
     }
   }
-  storeTable.deleteRow(-1);
-  stores.splice(storeToRender, 1);
-  stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
-  stores[stores.length - 1].render();
-  populateTotalRow();
+  if (exists) {
+    storeTable.deleteRow(-1);
+    stores.splice(storeToRender, 1);
+    stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
+    stores[stores.length - 1].render();
+    populateTotalRow();
+  } else {
+    stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
+    stores[stores.length - 1].render();
+    storeTable.deleteRow(-1);
+    populateTotalRow();
+  }
 };
 
 var populateHeadings = function(table, needTotal) {
