@@ -224,3 +224,15 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+body.different-style {
+    background-color: limegreen;
+}
+
+.bottom-left.different-style {
+    background-color: royalblue;
+}
+
+.top.different-style {
+    background-color: #333;
+}
