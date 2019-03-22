@@ -1,3 +1,4 @@
+'use strict';
 var styleButtons = document.getElementsByClassName('style-button');
 var skews = document.getElementsByClassName('skew');
 

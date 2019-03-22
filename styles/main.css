@@ -225,6 +225,8 @@ body {
     height: 100vh;
 }
 
+/*********DIFFERENT STYLES*********/
+
 body.different-style {
     background-color: limegreen;
 }
