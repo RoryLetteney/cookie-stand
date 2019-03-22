@@ -1,3 +1,4 @@
+'use strict';
 var storeOpen = 6;
 var storeClose = 20;
 

@@ -1,3 +1,4 @@
+'use strict';
 var body = document.body;
 var footer = document.createElement('footer');
 var img = document.createElement('img');

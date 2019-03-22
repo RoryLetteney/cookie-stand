@@ -12,7 +12,7 @@
     <div class="bottom-left col-3 skew"></div>
     <div class="top skew"></div>
     <main id="sales">
-        <form id="add-new-location" class="form col-10">
+        <form id="add-new-location" class="form col-11">
             <fieldset>
                 <legend class="form-legend">Add a new store to the table:</legend>
 
@@ -32,7 +32,30 @@
                     <input id="avg-cookies" class="form-input" name="avg-cookies" type="text" placeholder="3.8" required>
                 </label>
 
-                <button type="submit">Add Store Data</button>
+                <button type="submit" class="form-button">Add Store Data</button>
+            </fieldset>
+        </form>
+        <form id="update-store-data" class="form col-11">
+            <fieldset>
+                <legend class="form-legend">Update store data:</legend>
+
+                <label class="form-label" for='location'>Location Name 
+                    <input id="location" class="form-input" name="location" type="text" placeholder="SeaTac Airport" required>
+                </label>
+
+                <label class="form-label" for='min-customers'>Min Customers Per Hour 
+                    <input id="min-customers" class="form-input" name="min-customers" type="text" placeholder="23" required>
+                </label>
+
+                <label class="form-label" for='max-customers'>Max Customers Per Hour 
+                    <input id="max-customers" class="form-input" name="max-customers" type="text" placeholder="65" required>
+                </label>
+
+                <label class="form-label" for='avg-cookies'>Avg Cookies Per Customer 
+                    <input id="avg-cookies" class="form-input" name="avg-cookies" type="text" placeholder="3.8" required>
+                </label>
+
+                <button type="submit" class="form-button">Update Store Data</button>
             </fieldset>
         </form>
         <h2 class="table-heading col-10">Cookie Production</h2>

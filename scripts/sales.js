@@ -2,6 +2,8 @@
 
 var newStoreForm = document.getElementById('add-new-location');
 var newStoreFormElements = Object.values(newStoreForm.elements);
+var updateStoreForm = document.getElementById('update-store-data');
+var updateStoreFormElements = Object.values(updateStoreForm.elements);
 var storeTable = document.getElementById('store-table');
 var staffTable = document.getElementById('staff-table');
 var tables = [storeTable, staffTable];
@@ -20,9 +22,38 @@ var addNewStore = function(e) {
       newStoreData.push(element.value);
     }
   });
-  stores.push(new Store(newStoreData[0], parseInt(newStoreData[1]), parseInt(newStoreData[2]), parseInt(newStoreData[3]), tables));
+  stores.push(new Store(newStoreData[0], parseInt(newStoreData[1]), parseInt(newStoreData[2]), parseFloat(newStoreData[3]), tables));
   stores[stores.length - 1].render();
   storeTable.deleteRow(-1);
+  populateTotalRow();
+};
+
+var updateStoreData = function(e) {
+  e.preventDefault();
+  var currentTableData = [];
+  var storeToRender;
+  var updatedData = [];
+  updateStoreFormElements.forEach(function(element) {
+    if (updateStoreFormElements.indexOf(element) > 0 && updateStoreFormElements.indexOf(element) < updateStoreFormElements.length - 1) {
+      updatedData.push(element.value);
+    }
+  });
+  for (var i = 0; i < tables.length; i++) {
+    currentTableData[i] = Object.values(tables[i].getElementsByTagName('tr'));
+  }
+  for (var i = 0; i < currentTableData.length; i++) {
+    for (var a = 0; a < currentTableData[i].length; a++) {
+      var currentLocationName = currentTableData[i][a].innerHTML.substr(0, currentTableData[i][a].innerHTML.indexOf('<'));
+      currentTableData[i][a] = currentLocationName;
+      if (currentLocationName === updateStoreFormElements[1].value) {
+        tables[i].deleteRow(a);
+      }
+    }
+  }
+  storeTable.deleteRow(-1);
+  stores.splice(storeToRender, 1);
+  stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
+  stores[stores.length - 1].render();
   populateTotalRow();
 };
 
@@ -80,3 +111,4 @@ stores.forEach(function(store) {
 populateTotalRow();
 
 newStoreForm.addEventListener('submit', addNewStore);
+updateStoreForm.addEventListener('submit', updateStoreData);
