@@ -71,6 +71,11 @@ body {
     width: calc((100vw / 12) * 10);
 }
 
+.col-11 {
+    width: 91.66%;
+    width: calc((100vw / 12) * 11);
+}
+
 /**************HOME PAGE****************/
 
 #home {
@@ -147,6 +152,21 @@ body {
     width: 100px;
 }
 
+.form-button {
+    width: 200px;
+    height: 30px;
+    margin-left: 15px;
+    background-color: #4a4238;
+    color: #eee;
+    font-weight: 700;
+    border: none;
+    border-radius: 2px;
+}
+
+.form-button:hover {
+    background-color: rgba(74, 66, 56, 0.90);
+}
+
 .table-heading {
     text-align: center;
     margin: 5vh auto 0;
@@ -190,7 +210,7 @@ body {
 }
 
 .store-data-cookies:last-of-type {
-    background-color: #4a423895;
+    background-color: rgba(74, 66, 56, 0.80);
     color: #eee;
     font-weight: 600;
 }
