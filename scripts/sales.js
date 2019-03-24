@@ -15,8 +15,8 @@ heading.className = 'heading';
 total.className = 'store-data-item total';
 
 var regenerateTotalRow = function() {
-  stores[stores.length - 1].render();
   storeTable.deleteRow(-1);
+  stores[stores.length - 1].render();
   populateTotalRow();
 };
 
@@ -59,7 +59,6 @@ var addNewStore = function(e) {
   var currentTableData = checkCurrentTableRows();
   var addCheck = compareFormToCurrentTableData(currentTableData, newStoreFormElements);
   if (!addCheck[0]) {
-    console.log(addCheck);
     newStoreFormElements.forEach(function(element) {
       if (newStoreFormElements.indexOf(element) > 0 && newStoreFormElements.indexOf(element) < newStoreFormElements.length - 1) {
         newStoreData.push(element.value);

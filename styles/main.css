@@ -203,11 +203,11 @@ main {
     color: #4a4238;
 }
 
-.row:nth-child(even) {
+.row:nth-child(2n + 0) {
     background-color: #048ba8;
 }
 
-.row:nth-child(odd) {
+.row:nth-child(2n + 1) {
     background-color: #048aa867;
 }
 
