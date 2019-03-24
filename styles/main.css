@@ -21,13 +21,13 @@ html {
 
 body {
     background-color: #048ba850;
-    position: relative;
-    height: 100vh;
+}
+
+main {
+    min-height: 95vh;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     text-align: center;
     line-height: 5vh;
@@ -80,6 +80,8 @@ body {
 
 #home {
     color: #4a4238;
+    clear: both;
+    overflow: hidden;
 }
 
 .company-name {
