@@ -14,6 +14,12 @@ var total = document.createElement('td');
 heading.className = 'heading';
 total.className = 'store-data-item total';
 
+var regenerateTotalRow = function() {
+  stores[stores.length - 1].render();
+  storeTable.deleteRow(-1);
+  populateTotalRow();
+};
+
 var addNewStore = function(e) {
   e.preventDefault();
   var newStoreData = [];
@@ -23,14 +29,11 @@ var addNewStore = function(e) {
     }
   });
   stores.push(new Store(newStoreData[0], parseInt(newStoreData[1]), parseInt(newStoreData[2]), parseFloat(newStoreData[3]), tables));
-  stores[stores.length - 1].render();
-  storeTable.deleteRow(-1);
-  populateTotalRow();
+  regenerateTotalRow();
 };
 
 var updateStoreData = function(e) {
   e.preventDefault();
-  var exists = false;
   var currentTableData = [];
   var storeToRender;
   var updatedData = [];
@@ -48,22 +51,12 @@ var updateStoreData = function(e) {
       currentTableData[i][a] = currentLocationName;
       if (currentLocationName === updateStoreFormElements[1].value) {
         tables[i].deleteRow(a);
-        exists = true;
       }
     }
   }
-  if (exists) {
-    storeTable.deleteRow(-1);
-    stores.splice(storeToRender, 1);
-    stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
-    stores[stores.length - 1].render();
-    populateTotalRow();
-  } else {
-    stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
-    stores[stores.length - 1].render();
-    storeTable.deleteRow(-1);
-    populateTotalRow();
-  }
+  stores.splice(storeToRender, 1);
+  stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
+  regenerateTotalRow();
 };
 
 var populateHeadings = function(table, needTotal) {
