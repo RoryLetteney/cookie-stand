@@ -20,43 +20,77 @@ var regenerateTotalRow = function() {
   populateTotalRow();
 };
 
+var checkCurrentTableRows = function() {
+  var currentTableRows = [];
+  for (var i = 0; i < tables.length; i++) {
+    currentTableRows[i] = Object.values(tables[i].getElementsByTagName('tr'));
+  }
+  return currentTableRows;
+};
+
+var compareFormToCurrentTableData = function (tableData, form) {
+  var exists;
+  var index;
+  var results = [];
+  for (var i = 0; i < tableData.length; i++) {
+    for (var a = 0; a < tableData[i].length; a++) {
+      var currentLocationName = tableData[i][a].innerHTML.substr(0, tableData[i][a].innerHTML.indexOf('<'));
+      if (currentLocationName === form[1].value) {
+        exists = true;
+        index = a;
+        break;
+      } else {
+        exists = false;
+      }
+    }
+  }
+  results.push(exists, index);
+  return results;
+};
+
+var updateTables = function(data) {
+  stores.push(new Store(data[0], parseInt(data[1]), parseInt(data[2]), parseFloat(data[3]), tables));
+  regenerateTotalRow();
+};
+
 var addNewStore = function(e) {
   e.preventDefault();
   var newStoreData = [];
-  newStoreFormElements.forEach(function(element) {
-    if (newStoreFormElements.indexOf(element) > 0 && newStoreFormElements.indexOf(element) < newStoreFormElements.length - 1) {
-      newStoreData.push(element.value);
-    }
-  });
-  stores.push(new Store(newStoreData[0], parseInt(newStoreData[1]), parseInt(newStoreData[2]), parseFloat(newStoreData[3]), tables));
-  regenerateTotalRow();
+  var currentTableData = checkCurrentTableRows();
+  var addCheck = compareFormToCurrentTableData(currentTableData, newStoreFormElements);
+  if (!addCheck[0]) {
+    console.log(addCheck);
+    newStoreFormElements.forEach(function(element) {
+      if (newStoreFormElements.indexOf(element) > 0 && newStoreFormElements.indexOf(element) < newStoreFormElements.length - 1) {
+        newStoreData.push(element.value);
+      }
+    });
+    updateTables(newStoreData);
+  } else {
+    alert('Store location already exists!');
+  }
 };
 
 var updateStoreData = function(e) {
   e.preventDefault();
-  var currentTableData = [];
   var storeToRender;
   var updatedData = [];
+  var currentTableData = checkCurrentTableRows();
+  var updateCheck = compareFormToCurrentTableData(currentTableData, updateStoreFormElements);
   updateStoreFormElements.forEach(function(element) {
     if (updateStoreFormElements.indexOf(element) > 0 && updateStoreFormElements.indexOf(element) < updateStoreFormElements.length - 1) {
       updatedData.push(element.value);
     }
   });
-  for (var i = 0; i < tables.length; i++) {
-    currentTableData[i] = Object.values(tables[i].getElementsByTagName('tr'));
+  if (updateCheck[0]) {
+    tables.forEach(function (table) {
+      table.deleteRow(updateCheck[1]);
+    });
+    stores.splice(storeToRender, 1);
+    updateTables(updatedData);
+  } else {
+    alert('Store location does not currently exist!');
   }
-  for (var i = 0; i < currentTableData.length; i++) {
-    for (var a = 0; a < currentTableData[i].length; a++) {
-      var currentLocationName = currentTableData[i][a].innerHTML.substr(0, currentTableData[i][a].innerHTML.indexOf('<'));
-      currentTableData[i][a] = currentLocationName;
-      if (currentLocationName === updateStoreFormElements[1].value) {
-        tables[i].deleteRow(a);
-      }
-    }
-  }
-  stores.splice(storeToRender, 1);
-  stores.push(new Store(updatedData[0], parseInt(updatedData[1]), parseInt(updatedData[2]), parseFloat(updatedData[3]), tables));
-  regenerateTotalRow();
 };
 
 var populateHeadings = function(table, needTotal) {
