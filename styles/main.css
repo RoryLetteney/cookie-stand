@@ -84,6 +84,15 @@ main {
     overflow: hidden;
 }
 
+.nav-link {
+    font-size: 1.6em;
+    padding: 15px;
+    display: inline-block;
+    color: #4a4238;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 .company-name {
     text-align: center;
     font-size: 3em;
@@ -245,18 +254,4 @@ main {
     background-color: #97db4f90;
     width: 100vw;
     height: 100vh;
-}
-
-/*********DIFFERENT STYLES*********/
-
-body.different-style {
-    background-color: limegreen;
-}
-
-.bottom-left.different-style {
-    background-color: royalblue;
-}
-
-.top.different-style {
-    background-color: #333;
 }
